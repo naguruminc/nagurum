@@ -1,0 +1,159 @@
+/* Custom styles for full-screen hero section */
+.vh-100-custom {
+    height: 90vh !important;
+    min-height: 500px !important;
+    max-height: 800px !important;
+    overflow: hidden;
+}
+
+.max-height-100vh {
+    max-height: 90vh !important;
+}
+
+/* Ensure the slider container takes full height */
+.slider-home-01 {
+    height: 90vh !important;
+    min-height: 500px;
+    max-height: 800px;
+}
+
+.slider-home-01 .slick-track,
+.slider-home-01 .slick-list,
+.slider-home-01 .box,
+.slider-home-01 .bg-img-cover-center {
+    height: 100%;
+}
+
+/* Make sure the slider items take full height */
+.slider-home-01 .slick-slide > div {
+    height: 100%;
+}
+
+/* Adjust the content positioning */
+.slider-home-01 .my-auto {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Ensure the background image covers the entire section */
+.bg-img-cover-center {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Fix for the bottom content positioning */
+.pos-fixed-bottom-right {
+    bottom: 30px;
+    right: 30px;
+}
+
+/* Mobile Hero Section */
+.slider-home-mobile .box {
+    height: 100vh;
+    max-height: 700px;
+    position: relative;
+}
+
+.slider-home-mobile .card {
+    height: 100%;
+    border: none;
+    background: transparent;
+}
+
+.slider-home-mobile .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.slider-home-mobile .card-body {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px !important;
+}
+
+.slider-home-mobile .slick-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.slider-home-mobile .slick-dots li {
+    display: inline-block;
+    margin: 0 4px;
+}
+
+.slider-home-mobile .slick-dots li button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: transparent;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+/* Hide mobile menu toggle on desktop */
+@media (min-width: 992px) {
+    .canvas-toggle,
+    .sidenav {
+        display: none !important;
+    }
+}
+
+.custom-dots-01 .slick-dots {
+    color: #fff;
+}
+
+/* Disable animations on mobile devices */
+@media (max-width: 767.98px) {
+  /* Disable category animations */
+  .slick-slider.custom-slider-01 [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  /* Disable product animations */
+  .product[data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  /* Two products per row on mobile */
+  .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+  
+  .products-container > [class*='col-'] {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 16px;
+  }
+  
+  /* Ensure product cards take full width of their container */
+  .products-container .card {
+    height: 100%;
+  }
+}
