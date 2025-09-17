@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Product Detail | Nagurum</title>
+    <!-- Vendors CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/mapbox-gl.min.css">
+    <link rel="stylesheet" href="css/phosphor.min.css">
+    <link rel="stylesheet" href="css/stylesheet.min.css">
+    <!-- Themes core CSS -->
+    <link rel="stylesheet" href="css/themes.css">
+    <!-- Custom Product Details CSS -->
+    <link rel="stylesheet" href="css/custom-product-details.css">
+  </head>
+  <body>
+    <header class="main-header navbar-light header-sticky header-sticky-smart">
+      <div class="sticky-area bg-white">
+        <div class="container container-xxl">
+          <nav class="navbar navbar-expand-xl px-0 d-block">
+            <div class="d-none d-xl-block">
+              <div class="d-flex align-items-center flex-nowrap">
+                <div class="w-50">
+                  <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n5">
+                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-home dropdown py-2 py-xl-4 px-0 px-xl-2 px-xxl-5">
+                      <a class="nav-link p-1" href="../index.html">
+                        HOME
+                        <span class="caret"></span>
+                      </a>
+                    </li>
+                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-shop dropdown py-2 py-xl-4 px-0 px-xl-2 px-xxl-5">
+                      <a class="nav-link p-1" href="../products/pro.html">
+                        PRODUCTS
+                        <span class="caret"></span>
+                      </a>
+                    </li>
+                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-pages dropdown py-2 py-xl-4 px-0 px-xl-2 px-xxl-5">
+                      <a class="nav-link p-1" href="../about.html">
+                        ABOUT US
+                        <span class="caret"></span>
+                      </a>
+                    </li>
+                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-blog dropdown py-2 py-xl-4 px-0 px-xl-2 px-xxl-5">
+                      <a class="nav-link p-1" href="../contact.html">
+                        CONTACT US
+                        <span class="caret"></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mx-auto flex-shrink-0">
+                  <div class="d-flex mt-3 mt-xl-0 align-items-center w-100 justify-content-center">
+                    <a class="navbar-brand mx-auto d-inline-block py-0" href="../index.html">
+                      <img src="../images/image (8).png" alt="Nagurum" style="max-height: 60px;">
+                    </a>
+                  </div>
+                </div>
+                <div class="w-50">
+                  <div class="d-flex align-items-center justify-content-end">
+                    <ul class="navbar-nav flex-row justify-content-xl-end align-items-center d-flex flex-wrap py-0 navbar-right">
+                      <li class="nav-item" data-toggle="tooltip" title="Search">
+                        <a href="#search-popup" data-gtf-mfp="true" data-mfp-options='{"type":"inline","focus": "#keyword","mainClass": "mfp-search-form mfp-move-from-top mfp-align-top"}' class="nav-link nav-search d-flex align-items-center px-3">
+                          <i class="far fa-search"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center d-xl-none">
+              <button class="navbar-toggler border-0 px-0 canvas-toggle" type="button" data-canvas="true" data-canvas-options='{"width":"250px","container":".sidenav"}'>
+                <span class="fs-24 toggle-icon"></span>
+              </button>
+              <div class="mx-auto" style="max-height: 65px; align-items: center;"><a class="navbar-brand d-inline-block mr-0 " href="index.html">
+                  <img src="../images/image (8).png" alt="nagurum" style="max-height: 45px; padding-right: 5px;"> 
+                </a></div>
+              <a href="#search-popup" data-gtf-mfp="true" data-mfp-options='{"type":"inline","focus": "#keyword","mainClass": "mfp-search-form mfp-move-from-top mfp-align-top"}' class="nav-search d-flex align-items-center">
+                <i class="fal fa-search"></i>
+                <span class="d-none d-xl-inline-block ml-2 font-weight-500">Search</span></a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main id="content" class="py-8">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 product-gallery-container">
+            <!-- Gallery will be loaded here -->
+          </div>
+          <div class="col-md-6">
+            <div class="summary-sticky">
+              <!-- Product summary will be loaded here -->
+            </div>
+          </div>
+        </div>
+        <!-- Tabs will be dynamically inserted here by JavaScript -->
+    </main>
+    <footer class="footer bg-gray-2 pt-10">
+      <div class="border-bottom border-custom">
+        <div class="container container-xxl">
+          <div class="row">
+            <div class="col-sm-6 col-xl-3 border-0 border-xl-right border-custom pb-8">
+              <div>
+                <h3 class="fs-16 mb-3 font-weight-500">INFORMATION</h3>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#" class="text-body lh-1875 hover-primary">Privacy policy</a></li>
+                  <li><a href="#" class="text-body lh-1875 hover-primary">Shipping &amp; Return</a></li>
+                  <li><a href="#" class="text-body lh-1875 hover-primary">Term &amp; conditions</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 border-0 border-xl-right border-custom pb-8">
+              <div class="pl-xl-6">
+                <h3 class="fs-16 mb-3 font-weight-500">QUICK LINKS</h3>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="../about.html" class="text-body lh-1875 hover-primary">About Us</a></li>
+                  <li><a href="../contact.html" class="text-body lh-1875 hover-primary">Contact Us</a></li>
+                  <li><a href="../products/pro.html" class="text-body lh-1875 hover-primary">Products</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 border-0 border-xl-right border-custom pb-8">
+              <div class="pl-xl-6">
+                <h3 class="fs-16 mb-3 font-weight-500">OUR STORE</h3>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="tel:+919176055555" class="text-body lh-1875 hover-primary">+91 91760 55555</a></li>
+                  <li><a href="mailto:naguruminc@gmail.com" class="text-body lh-1875 hover-primary">naguruminc@gmail.com</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 pb-8">
+              <div class="pl-xl-6">
+                <h3 class="fs-16 mb-4 font-weight-500">Subscribe</h3>
+                <p class="lh-2 mb-4">Enter your email below to be the first to know about new collections and
+                  product
+                  launches.</p>
+                <form>
+                  <div class="input-group position-relative bg-white rounded">
+                    <span class="d-inline-flex align-items-center position-absolute pos-fixed-left-center text-primary z-index-2 left-15"><i class="fal fa-envelope"></i></span>
+                    <input type="text" class="form-control border-0 bg-transparent pl-7" placeholder="Enter your email">
+                    <div class="input-group-append fs-14 position-absolute pos-fixed-right-center z-index-2 pr-3">
+                      <button class="bg-transparent border-0 outline-none">
+                        <i class="far fa-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="py-4">
+        <div class="container container-xxl">
+          <div class="row align-items-center">
+            <div class="col-lg-12 mb-4 mb-lg-0">
+              <p class="mb-0 text-uppercase text-center fs-14 text-primary letter-spacing-07px">&copy; Nagurum 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Vendors scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/countUp.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/hc-sticky.min.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/mapbox-gl.js"></script>
+    <script src="js/isotope.js"></script>
+    <script src="js/jquery.fullscreen.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Initialize Supabase and make it globally available
+        window.supabaseUrl = 'https://ffwksvdrslvvyfjcclui.supabase.co';
+        window.supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmd2tzdmRyc2x2dnlmamNjbHVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5NTA3NjcsImV4cCI6MjA3MzUyNjc2N30.Dt4rZFnTM5gRh86XIK9D8pDRHeXmNg7dcaG2U4arjtk';
+        window.supabaseServiceKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmd2tzdmRyc2x2dnlmamNjbHVpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1Nzk1MDc2NywiZXhwIjoyMDczNTI2NzY3fQ.ScwZMLsfJYK2jIJbP3MIVVrpsl3LyFg-muZwsy5klpc';
+        window.supabase = supabase.createClient(supabaseUrl, supabaseKey);
+        console.log('Supabase initialized:', !!window.supabase);
+    </script>
+    
+    <!-- Theme scripts -->
+    <script src="js/theme.js"></script>
+    
+    <!-- Custom scripts -->
+    <script src="js/product-details.js"></script>
+    <div class="mfp-hide search-popup mfp-with-anim bg-white" id="search-popup">
+      <div class="container container-xxl">
+        <nav class="navbar navbar-expand-xl px-0 py-2 py-xl-0 row no-gutters main-header align-items-start">
+          <div class="col-xl-2"><a class="navbar-brand mr-0" href="index.html">
+              <img src="../images/image (8).png" alt="Nagurum" style="max-height: 60px; padding-right: 5px;">
+            </a></div>
+          <div class="col-xl-8 d-flex justify-content-center position-static">
+            <form class="w-100">
+              <div class="input-group position-relative mb-2 mw-830 mx-auto">
+                <input type="text" class="form-control form-control bg-transparent border-primary rounded" placeholder="Search product">
+                <div class="input-group-append position-absolute pos-fixed-right-center">
+                  <button class="input-group-text bg-transparent border-0 px-0 fs-28 pr-3" type="submit">
+                    <i class="fal fa-search fs-20 font-weight-normal"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="sidenav canvas-sidebar bg-white">
+      <div class="canvas-overlay">
+      </div>
+      <div class="pt-5 pb-7 card border-0 h-100">
+        <div class="d-flex align-items-center card-header border-0 py-0 pl-8 pr-7 mb-9 bg-transparent">
+          <a href="../index.html" class="d-block w-179px">
+            <img src="../images/image (8).png" alt="nagurum" style="max-height: 60px;">
+          </a>
+          <span class="canvas-close d-inline-block text-right fs-24 ml-auto lh-1 text-primary"><i class="fal fa-times"></i></span>
+        </div>
+        <div class="overflow-y-auto pb-6 pl-8 pr-7 card-body pt-0">
+          <ul class="navbar-nav main-menu px-0 ">
+            <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown py-1 px-0">
+              <a class="nav-link p-0" href="../index.html">
+                HOME
+              </a>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown py-1 px-0">
+              <a class="nav-link p-0" href="../products/pro.html">
+                PRODUCTS
+                <span class="caret"></span>
+              </a>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown py-1 px-0">
+              <a class="nav-link p-0" href="../about.html">
+                ABOUT US
+              </a>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown py-1 px-0">
+              <a class="nav-link p-0" href="../contact.html">
+                CONTACT US
+                <span class="caret"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer bg-transparent border-0 mt-auto pl-8 pr-7 pb-0 pt-4">
+          <ul class="list-inline d-flex align-items-center mb-3">
+            <li class="list-inline-item mr-4"><a href="#" class="fs-20 lh-1"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item mr-4"><a href="#" class="fs-20 lh-1"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="fs-20 lh-1"><i class="fab fa-twitter"></i></a></li>
+          </ul>
+          <p class="mb-0 text-gray">
+            &copy; 2025 Nagurum.<br>
+             All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  
+</body></html>

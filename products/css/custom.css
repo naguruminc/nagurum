@@ -1,0 +1,62 @@
+/* Prevent horizontal scrolling on mobile */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure all elements stay within viewport */
+.container,
+.container-fluid,
+.row,
+[class*="col-"],
+.main-header,
+.primary-sidebar {
+  max-width: 100%;
+}
+
+/* Mobile navbar styles */
+@media (max-width: 991.98px) {
+  .main-header {
+    padding: 0.25rem 0;
+  }
+  
+  .sticky-area {
+    padding: 0 !important;
+  }
+  
+  .navbar-brand {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-brand img {
+    max-height: 40px !important;
+    width: auto;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+  
+  /* Fix for mobile menu */
+  .navbar-collapse {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  
+  /* Fix for any full-width elements */
+  .container,
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  /* Ensure images don't cause overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

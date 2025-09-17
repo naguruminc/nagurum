@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <!-- Vendors CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/mapbox-gl.min.css">
+    <link rel="stylesheet" href="css/phosphor.min.css">
+    <link rel="stylesheet" href="css/stylesheet.min.css">
+    <!-- Themes core CSS -->
+    <link rel="stylesheet" href="css/themes.css">
+  </head>
+  <body>
+    <div class="wrapper dashboard-wrapper">
+      <div class="d-flex flex-wrap flex-xl-nowrap">
+        <div class="db-sidebar bg-white">
+          <nav class="navbar navbar-expand-xl navbar-light d-block px-0 header-sticky dashboard-nav py-0">
+            <div class="sticky-area border-right">
+              <div class="d-flex px-3 px-xl-6 w-100 border-bottom py-2">
+                <a class="navbar-brand" href="../index.html">
+                  <img src="../images/image (8).png" alt="Nagurum" class="logo-dark" style="height: 70px; padding-left: 50px;">
+                </a>
+              </div>
+              <div class="collapse navbar-collapse bg-white" id="primaryMenuSidebar">
+                <form class="d-block d-xl-none pt-5 px-3">
+                  <div class="input-group position-relative bg-gray">
+                    <input type="text" class="form-control border-0 bg-transparent pl-4 shadow-none" placeholder="Search Item">
+                    <div class="input-group-append fs-14 px-3 border-left border-2x ">
+                      <button class="bg-transparent border-0 outline-none">
+                        <i class="fal fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <ul class="list-group list-group-flush list-group-no-border w-100 p-3">
+                  <li class="list-group-item px-0 py-0 sidebar-item mb-1">
+                    <a href="#" class="text-heading lh-1 sidebar-link py-2 px-3 px-xl-4 d-block active" id="products-tab">
+                      <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-18">
+                        <i class="fas fa-box"></i>
+                      </span>
+                      <span class="sidebar-item-text">Products</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="page-content">
+          <header class="main-header bg-white position-relative d-none d-xl-block">
+            <div class="container-fluid">
+              <nav class="navbar navbar-light py-0 row no-gutters px-3 px-lg-0">
+                <div class="col-md-4 px-0 px-md-6 order-1 order-md-0">
+                  <form>
+                    <div class="input-group position-relative bg-input rounded">
+                      <input type="text" class="form-control border-0 bg-transparent pl-4 shadow-none" placeholder="Search Item">
+                      <div class="input-group-append fs-14 px-3 border-left border-2x bg-hover-primary ">
+                        <button class="bg-transparent border-0 outline-none">
+                          <i class="fal fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </nav>
+            </div>
+          </header>
+          <main id="content" class="bg-gray-01 d-flex flex-column main-content">
+            <div class="dashboard-page-content">
+              <!-- Products List -->
+              <div id="products-section">
+                <div class="row mb-6 align-items-center">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <h2 class="fs-30 mb-0">Products Management</h2>
+                    <p class="mb-0">Manage your products inventory</p>
+                  </div>
+                  <div class="col-sm-6 text-sm-right">
+                    <button id="add-product-btn" class="btn btn-primary">
+                      <i class="fal fa-plus"></i> Add New Product
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Products Table -->
+                <div class="card border-0 mb-4">
+                  <div class="card-body p-0">
+                    <div class="table-responsive">
+                      <table class="table table-hover table-centered mb-0">
+                        <thead class="bg-light">
+                          <tr>
+                            <th class="border-0">Image</th>
+                            <th class="border-0">Name</th>
+                            <th class="border-0">Category</th>
+                            <th class="border-0">Price</th>
+                            <th class="border-0">Stock</th>
+                            <th class="border-0 text-center">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody id="products-table-body">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Add/Edit Product Form -->
+              <div id="product-form-section" class="d-none">
+                <div class="row mb-6 align-items-center">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <h2 class="fs-30 mb-0" id="form-title">Add New Product</h2>
+                    <p class="mb-0">Fill in the product details</p>
+                  </div>
+                  <div class="col-sm-6 text-sm-right">
+                    <button id="back-to-products" class="btn btn-outline-secondary">
+                      <i class="fal fa-arrow-left"></i> Back to Products
+                    </button>
+                  </div>
+                </div>
+
+                <div class="card border-0">
+                  <div class="card-body p-4">
+                    <form id="product-form">
+                      <input type="hidden" id="product-id">
+                      
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="product-name">Product Name *</label>
+                            <input type="text" class="form-control" id="product-name" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="product-category">Category *</label>
+                            <select class="form-control" id="product-category" required>
+                              <option value="">Select Category</option>
+                              <option value="backpacks">Backpacks</option>
+                              <option value="gaming">Gaming</option>
+                              <option value="audio">Audio</option>
+                              <option value="camera-bags">Camera Bags</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="product-original-price">Original Price (₹) *</label>
+                            <input type="number" step="1" min="0" class="form-control" id="product-original-price" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="product-sale-price">Sale Price (₹) <small class="text-muted">Leave empty for no sale</small></label>
+                            <input type="number" step="1" min="0" class="form-control" id="product-sale-price">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group form-check mt-4 pt-2">
+                            <input type="checkbox" class="form-check-input" id="product-in-stock" checked>
+                            <label class="form-check-label" for="product-in-stock">In Stock</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="product-short-description">Short Description *</label>
+                        <textarea class="form-control" id="product-short-description" rows="2" maxlength="160" placeholder="A brief description (max 160 characters)" required></textarea>
+                        <small class="form-text text-muted">This will be shown on the product card and at the top of the product page.</small>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="product-description">Detailed Description</label>
+                        <textarea class="form-control" id="product-description" rows="5" placeholder="Full product details, features, and specifications"></textarea>
+                        <small class="form-text text-muted">This will be shown in the description tab on the product page.</small>
+                      </div>
+
+                      <!-- Specifications -->
+                      <div class="card mb-4">
+                        <div class="card-header bg-light">
+                          <h5 class="mb-0">Specifications</h5>
+                          <small class="text-muted">Add key-value pairs for product specifications. Use the 'Add Heading' button for section breaks.</small>
+                        </div>
+                        <div class="card-body">
+                          <div id="specifications-container">
+                            <!-- Dynamic fields will be added here -->
+                          </div>
+                          <div class="btn-group mt-3" role="group">
+                            <button type="button" id="add-specification" class="btn btn-sm btn-outline-primary">
+                              <i class="fas fa-plus"></i> Add Field
+                            </button>
+                            <button type="button" id="add-heading" class="btn btn-sm btn-outline-secondary ml-2">
+                              <i class="fas fa-heading"></i> Add Heading
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Product Images (Up to 4 images)</label>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input product-image" accept="image/*" data-index="1">
+                              <label class="custom-file-label">Choose image 1 (Main)</label>
+                            </div>
+                            <div class="image-preview-container mt-2" data-preview="1"></div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input product-image" accept="image/*" data-index="2">
+                              <label class="custom-file-label">Choose image 2</label>
+                            </div>
+                            <div class="image-preview-container mt-2" data-preview="2"></div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input product-image" accept="image/*" data-index="3">
+                              <label class="custom-file-label">Choose image 3</label>
+                            </div>
+                            <div class="image-preview-container mt-2" data-preview="3"></div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input product-image" accept="image/*" data-index="4">
+                              <label class="custom-file-label">Choose image 4</label>
+                            </div>
+                            <div class="image-preview-container mt-2" data-preview="4"></div>
+                          </div>
+                        </div>
+                        <small class="form-text text-muted">Recommended size: 800x800px. First image will be used as main product image.</small>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="product-featured">
+                          <label class="form-check-label" for="product-featured">
+                            Featured Product
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="mt-4">
+                        <button type="submit" class="btn btn-primary mr-2" id="save-product">
+                          <i class="fal fa-save"></i> Save Product
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" id="cancel-edit">
+                          Cancel
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="pt-3 pb-6 footer-dashboard mt-auto">
+              <div class="row">
+                <div class="col-sm-6">
+                  2025© Nagurum.
+                </div>
+                <div class="col-sm-6">
+                  <div class="text-sm-right">All rights reserved</div>
+                </div>
+              </div>
+            </footer>
+          </main>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    
+    <!-- Other vendor scripts -->
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/countUp.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    
+    <!-- Load Supabase client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Load and initialize Supabase config -->
+    <script type="module" src="js/supabase-config.js"></script>
+    
+    <!-- Load admin products script -->
+    <script type="module" src="js/admin-products.js" defer></script>
+    <script src="js/hc-sticky.min.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/mapbox-gl.js"></script>
+    <script src="js/isotope.js"></script>
+    <script src="js/jquery.fullscreen.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <!-- Theme scripts -->
+    <script src="js/theme.js"></script>
+  
+</body></html>

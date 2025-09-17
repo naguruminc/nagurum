@@ -1,0 +1,477 @@
+/* Main container for the product page */
+#content {
+    min-height: calc(100vh - 200px); /* Account for header and footer */
+    padding: 40px 0;
+    position: relative;
+}
+
+/* Sticky product summary */
+.summary-sticky {
+    position: sticky;
+    top: 120px; /* Adjust based on your header height */
+    height: calc(100vh - 200px); /* Viewport height minus header and footer */
+    overflow-y: auto;
+    padding-right: 15px;
+    padding-bottom: 40px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.summary-sticky::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Gallery container */
+.product-gallery-container {
+    height: calc(100vh - 200px); /* Match summary height */
+    overflow-y: auto;
+    padding-right: 15px;
+    position: relative;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.product-gallery-container::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 991.98px) {
+    /* Mobile navbar fixes */
+    .d-xl-none {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        margin-right: 10px;
+    }
+    
+    .nav-search {
+        padding: 0.25rem 0.5rem;
+        margin-left: 10px;
+    }
+    
+    /* Ensure logo is properly centered */
+    .mx-auto {
+        margin: 0 auto !important;
+        padding: 0 10px;
+    }
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    .container, 
+    .container-fluid {
+        max-width: 100%;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        margin: 0;
+    }
+    
+    .container > .row,
+    .container-fluid > .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
+        max-width: 100%;
+    }
+    
+    [class*="col-"] {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    
+    /* Product details specific fixes */
+    .primary-summary {
+        padding-left: 0 !important;
+        margin-top: 30px;
+    }
+    
+    .primary-summary-inner {
+        padding: 0 15px;
+    }
+    
+    .product-image-dots {
+        display: none !important;
+    }
+    
+    .scrollspy-images {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+    
+    /* Ensure all content respects the viewport */
+    .product-detail-section,
+    .product-gallery-container,
+    .summary-sticky,
+    .product-tabs,
+    .product-info-section {
+        max-width: 100%;
+        width: 100%;
+        overflow-x: hidden;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    
+    /* Fix for images and other media */
+    img, video, iframe {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Adjust buttons and form elements */
+    .btn-block {
+        width: 100%;
+        margin: 5px 0;  /* Reduced from 10px */
+        padding: 10px 15px;  /* Reduced from 12px 20px */
+        font-size: 15px;  /* Slightly smaller font */
+        border-radius: 4px;
+        text-align: center;
+        display: inline-block;
+        line-height: 1.3;  /* Tighter line height */
+    }
+    
+    /* Center align button container */
+    .col-sm-12.mb-6.px-2 {
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    /* Adjust spacing after buttons */
+    .primary-summary-inner > form {
+        margin-bottom: 0;
+    }
+    
+    .primary-summary-inner {
+        padding: 0 15px !important;
+    }
+    
+    /* Ensure proper spacing between buttons */
+    .btn-block + .btn-block {
+        margin-top: 15px;
+    }
+    
+    /* Price and title alignment */
+    .price-container, h1 {
+        padding-left: 0;
+        margin-left: 0;
+    }
+}
+
+/* Product Tabs Styling */
+.product-tabs {
+    margin-top: 40px;
+    margin-left: 20px; /* Added left margin for better spacing */
+    padding: 30px 20px 0; /* Added horizontal padding */
+    border-top: 1px solid #eaeaea;
+}
+
+/* Mobile view tabs */
+@media (max-width: 991.98px) {
+    .product-tabs { 
+        margin-left: 0 0 0 0;
+        padding: 0px 15px 0 0 ;
+    }
+    
+    .product-tabs .nav-tabs {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        border-bottom: 2px solid #f5f5f5;
+        margin-bottom: 20px;
+        padding-bottom: 2px;
+    }
+    
+    .product-tabs .nav-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .product-tabs .nav-item {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        margin-right: 15px;
+    }
+    
+    .product-tabs .nav-link {
+        padding: 8px 15px;
+        font-size: 14px;
+        border-radius: 4px;
+        margin-bottom: -2px;
+    }
+    
+    .product-tabs .tab-content {
+        padding: 0 5px;
+    }
+}
+
+/* Specifications Styling */
+.specifications-container {
+    padding: 20px 0;
+}
+
+.specifications-container h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.specifications-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.specifications-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+.specifications-table td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    vertical-align: top;
+}
+
+.specifications-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.specifications-table tr:hover {
+    background-color: #f1f5ff;
+}
+
+.product-tabs .nav-tabs {
+    border-bottom: 2px solid #f5f5f5;
+    margin-bottom: 25px;
+}
+
+.product-tabs .nav-link {
+    border: none;
+    color: #6c757d;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-right: 5px;
+    background: transparent;
+    border-radius: 0;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-tabs .nav-link:hover {
+    border: none;
+    color: #e74c3c;
+}
+
+.product-tabs .nav-link.active {
+    color: #e74c3c;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #e74c3c;
+    margin-bottom: -2px;
+}
+
+/* Specifications Table Styling */
+.specifications-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.specifications-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.specifications-table th {
+    background-color: #f8f9fa;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border: 1px solid #dee2e6;
+}
+
+.specifications-table td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    vertical-align: top;
+    color: #555;
+}
+
+.specifications-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.specifications-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Thumbnails container */
+.product-image-dots {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    overflow-y: auto;
+    padding: 10px;
+    z-index: 10;
+}
+
+/* Main images container */
+.scrollspy-images {
+    width: 100%;
+}
+
+.scrollspy-images a {
+    display: block;
+    margin-bottom: 15px;
+    transition: opacity 0.3s ease;
+}
+
+.scrollspy-images img {
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Thumbnail styling */
+.product-image-dots .list-group-item {
+    border: 2px solid transparent;
+    margin-bottom: 5px;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.product-image-dots .list-group-item.active {
+    border-color: #000;
+    transform: scale(1.05);
+}
+
+.product-image-dots img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Hide scrollbars but keep functionality */
+.product-image-dots {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.product-image-dots::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Price Styling */
+.sale-price {
+    color: #e74c3c !important;
+    font-size: 1.5rem !important;
+    margin-right: 8px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #95a5a6 !important;
+    font-size: 1.1rem !important;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.discount-badge {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .summary-sticky {
+        position: static;
+        height: auto;
+        overflow: visible;
+        padding-right: 0;
+    }
+    
+    .product-gallery-container {
+        height: auto;
+        padding-right: 0;
+        padding-bottom: 60px; /* Extra space for horizontal thumbnail scroller */
+    }
+    
+    .product-image-dots {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-height: 100px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 10px 5px;
+        margin-bottom: 20px;
+    }
+    
+    .product-image-dots .list-group-item {
+        margin-right: 5px;
+        margin-bottom: 0;
+        flex: 0 0 auto;
+    }
+    
+    .scrollspy-images {
+        margin-left: 0;
+    }
+}
