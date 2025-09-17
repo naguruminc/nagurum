@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Nagurum Arcticfox | Backpacks, Messenger Bags, Duffles, School Shoes & More</title>
+    <!-- Vendors CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/css-all.css">
+    <link rel="stylesheet" href="css/css-bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick-slick.min.css">
+    <link rel="stylesheet" href="css/magnific-popup-magnific-popup.min.css">
+    <link rel="stylesheet" href="css/jquery-ui-jquery-ui.min.css">
+    <link rel="stylesheet" href="css/vendors-animate.css">
+    <link rel="stylesheet" href="css/mapbox-gl-mapbox-gl.min.css">
+    <link rel="stylesheet" href="css/css-phosphor.min.css">
+    <link rel="stylesheet" href="css/tuesday-night-stylesheet.min.css">
+    <!-- Themes core CSS -->
+    <link rel="stylesheet" href="css/css-themes.css">
+    
+    <!-- Custom CSS for 5-column layout -->
+    <style>
+      /* 5-column grid for products */
+      .col-lg-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 1199.98px) {
+        .col-lg-2-4 {
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+      }
+      @media (max-width: 991.98px) {
+        .col-lg-2-4 {
+          flex: 0 0 33.333333%;
+          max-width: 33.333333%;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .col-lg-2-4 {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .col-lg-2-4 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+      
+      /* Ensure product cards maintain consistent height */
+      .product-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom-styles.css">
+  </head>
+  <body>
+    <header class="main-header navbar-light header-sticky header-sticky-smart">
+      <div class="sticky-area bg-white">
+        <div class="container container-xxl">
+          <nav class="navbar navbar-expand-xl px-0 d-block">
+            <div class="d-none d-xl-block">
+              <div class="d-flex align-items-center flex-nowrap">
+                <div class="w-50">
+                  <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n5">
+                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-home dropdown py-2 py-xl-4 px-0 px-xl-2 px-xxl-5">
+                      <a class="nav-link p-1" href="index.html">
+                        HOME
+                        <span class="caret"></span>
+                      </a>
+                    </li>
+                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-shop dropdown py-2 py-xl-4 px-0 px-xl-2 px-xxl-5">
+                      <a class="nav-link p-1" href="products/pro.html" >
+                        PRODUCTS
+                        <span class="caret"></span>
+                      </a>
+                    </li>
+                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-pages dropdown py-2 py-xl-4 px-0 px-xl-2 px-xxl-5">
+                      <a class="nav-link p-1" href="about.html">
+                        ABOUT US
+                        <span class="caret"></span>
+                      </a>
+                    </li>
+                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-blog dropdown py-2 py-xl-4 px-0 px-xl-2 px-xxl-5">
+                      <a class="nav-link p-1" href="contact.html">
+                        CONTACT US
+                        <span class="caret"></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mx-auto flex-shrink-0">
+                  <div class="d-flex mt-3 mt-xl-0 align-items-center w-100 justify-content-center">
+                    <a class="navbar-brand mx-auto d-inline-block py-0" href="index.html">
+                      <img src="images/image (8).png" alt="Nagurum" style="max-height: 60px;">
+                    </a>
+                  </div>
+                </div>
+                <div class="w-50">
+                  <div class="d-flex align-items-center justify-content-end">
+                    <ul class="navbar-nav flex-row justify-content-xl-end align-items-center d-flex flex-wrap py-0 navbar-right">
+                      <li class="nav-item" data-toggle="tooltip" title="Search">
+                        <a href="#search-popup" data-gtf-mfp="true" data-mfp-options='{"type":"inline","focus": "#keyword","mainClass": "mfp-search-form mfp-move-from-top mfp-align-top"}' class="nav-link nav-search d-flex align-items-center px-3">
+                          <i class="far fa-search"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center d-xl-none">
+              <button class="navbar-toggler border-0 px-0 canvas-toggle" type="button" data-canvas="true" data-canvas-options='{"width":"250px","container":".sidenav"}'>
+                <span class="fs-24 toggle-icon"></span>
+              </button>
+              <div class="mx-auto" style="max-height: 65px; align-items: center;"><a class="navbar-brand d-inline-block mr-0 " href="index.html">
+                  <img src="images/image (8).png" alt="nagurum" style="max-height: 45px; padding-right: 5px;"> 
+                </a></div>
+              <a href="#search-popup" data-gtf-mfp="true" data-mfp-options='{"type":"inline","focus": "#keyword","mainClass": "mfp-search-form mfp-move-from-top mfp-align-top"}' class="nav-search d-flex align-items-center">
+                <i class="fal fa-search"></i>
+                <span class="d-none d-xl-inline-block ml-2 font-weight-500">Search</span></a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main id="content">
+      <section class="slick-slider custom-dots-01 mx-0 slider-home-01 d-none d-md-block" data-slick-options='{
+        "infinite": true,
+        "autoplay": true,
+        "dots": true,
+        "arrows": false,
+        "fade": false,
+        "cssEase": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "speed": 800,
+        "autoplaySpeed": 3000,
+        "pauseOnHover": true,
+        "pauseOnFocus": true,
+        "adaptiveHeight": false,
+        "responsive": [{
+          "breakpoint": 576,
+          "settings": {
+            "dots": false
+          }
+        }]
+      }'>
+        <div class="box h-100 px-0">
+          <div class="bg-img-cover-center vh-100-custom max-height-100vh w-100" style="background-image: url('images/image\ \(2\).jpg');">
+            <div class="container container-xxl h-100 position-relative">
+              <div class="h-100 d-flex flex-column">
+                <div data-animate="fadeInDown" class="my-auto">
+                  <p class="text-dark fs-40 font-weight-600">WELCOME TO</p>
+                  <h2 class="mb-5 fs-100 lh-1">NAGURUM INC</h2>
+                  <p class="text-dark fs-20 padding-left-10px font-weight-400 mb-3">Authorized Super Stockist of Arctic Fox Electronics – Tamil Nadu</p>
+                  <a href="tel:+919176055555" class="btn btn-outline-primary">Get Dealer Pricing</a>
+                </div>
+                <div class="position-absolute pos-fixed-bottom-right mb-6 mr-3 mr-sm-0">
+                  <p class="mb-0 text-primary text-right">
+                    Nagurum Inc
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box px-0">
+          <div class="bg-img-cover-center vh-100-custom" style="background-image: url('images/image\ \(4\).jpg');">
+            <div class="container container-xxl h-100 position-relative">
+              <div class="h-100 d-flex flex-column">
+                <div data-animate="fadeInDown" class="my-auto">
+                  <p class="text-dark fs-40 font-weight-600">GROW YOUR</p>
+                  <h2 class="mb-5 fs-100 lh-1">BUSINESS WITH US</h2>
+                  <p class="text-dark fs-20 font-weight-400 padding-left-10px mb-3">Exclusive products, unbeatable wholesale prices, and reliable supply chain support.</p>
+                  <a href="tel:+919176055555" class="btn btn-outline-primary">Partner With Nagurum</a>
+                </div>
+                <div class="position-absolute pos-fixed-bottom-right mb-6 mr-3 mr-sm-0">
+                  <p class="mb-0 text-primary text-right">
+                    Nagurum Inc
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box px-0">
+          <div class="bg-img-cover-center vh-100-custom" style="background-image: url('images/image\ \(1\).jpg');">
+            <div class="container container-xxl h-100 position-relative">
+              <div class="h-100 d-flex flex-column">
+                <div data-animate="fadeInDown" class="my-auto">
+                  <p class="text-dark fs-40 font-weight-600">TECHNOLOGY THAT</p>
+                  <h2 class="mb-5 fs-100 lh-1">YOU CAN TRUST</h2>
+                  <p class="text-dark fs-20 font-weight-300 padding-left-15px mb-3">Delivering genuine Arctic Fox Electronics with consistent support and after-sales care.</p>
+                  <a href="products/pro.html" class="btn btn-outline-primary">Explore Our Products</a>
+                </div>
+                <div class="position-absolute pos-fixed-bottom-right mb-6 mr-3 mr-sm-0">
+                  <p class="mb-0 text-primary text-right">
+                    Nagurum Inc
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="slick-slider mx-0 d-block d-md-none dots-mb-mt-0 slider-home-mobile" data-slick-options='{
+        "infinite": true,
+        "autoplay": true,
+        "dots": true,
+        "arrows": false,
+        "fade": false,
+        "cssEase": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "speed": 800,
+        "autoplaySpeed": 3000,
+        "pauseOnHover": true,
+        "pauseOnFocus": true,
+        "adaptiveHeight": false,
+        "responsive": [{
+          "breakpoint": 576,
+          "settings": {
+            "dots": false
+          }
+        }]
+      }'>
+        <div class="box px-0">
+          <div class="card border-0">
+            <img src="images/image (2).jpg" class="card-img-top" alt="hero-1">
+            <div class="card-body p-3">
+              <div class="container">
+                <div data-animate="fadeInDown" class="text-center">
+                  <p class="text-dark fs-25 font-weight-600">WELCOME TO </p>
+                  <h2 class="mb-2 fs-40 lh-1 mb-3">NAGURUM INC</h2>
+                  <p class="text-dark fs-18 mb-3">Authorized Super Stockist of Arctic Fox Electronics – Tamil Nadu</p>
+                  <a href="tel:+919176055555" class="btn btn-outline-primary">Get Dealer Pricing</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box px-0">
+          <div class="card border-0">
+            <img src="images/image (4).jpg" class="card-img-top" alt="Autumn Collection">
+            <div class="card-body p-3">
+              <div class="container">
+                <div data-animate="fadeInDown" class="text-center">
+                  <p class="text-dark fs-25 font-weight-600">GROW YOUR</p>
+                  <h2 class="mb-2 fs-36 lh-1">BUSINESS WITH US</h2>
+                  <p class="text-dark fs-18 mb-3">Exclusive products, unbeatable wholesale prices, and reliable supply chain support.</p>
+                  <a href="tel:+919176055555" class="btn btn-outline-primary">Partner With Nagurum</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box px-0">
+          <div class="card border-0">
+            <img src="images/image (1).jpg" class="card-img-top" alt="Venice Haute Couture">
+            <div class="card-body p-3">
+              <div class="container">
+                <div data-animate="fadeInDown" class="text-center">
+                  <p class="text-dark fs-25 font-weight-600">TECHNOLOGY THAT</p>
+                  <h2 class="mb-2 fs-36 lh-1">YOU CAN TRUST</h2>
+                  <p class="text-dark fs-18 mb-3">Delivering genuine Arctic Fox Electronics with consistent support and after-sales care.</p>
+                  <a href="products/pro.html" class="btn btn-outline-primary">Explore Our Products</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pt-md-13 pt-9 overflow-hidden">
+        <div class="container container-xxl">
+          <h2 class="mb-0 fs-30 fs-lg-42 d-inline-block align-items-center">TOP CATEGORIES</h2>
+          <div class="slick-slider custom-slider-01" data-slick-options='{"slidesToShow": 6,"dots":true,"arrows":true,"responsive":[{"breakpoint": 1650,"settings": {"arrows":true,"dots":true}},{"breakpoint": 1200,"settings": {"slidesToShow":4,"arrows":true,"dots":true}},{"breakpoint": 992,"settings": {"slidesToShow":3,"arrows":false,"dots":false}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":false}},{"breakpoint": 400,"settings": {"slidesToShow": 1,"arrows":true,"dots":false}}]}'>
+            <div class="box py-8" data-animate="fadeInUp">
+              <div class="card border-0 hover-zoom-in-custom hover-change-button">
+                <div class="card-img">
+                  <img src="images/Backpacks-Photoroom.png" alt="Sneakers">
+                </div>
+                <div class="card-img-overlay d-flex align-items-end px-6 py-4">
+                  <div class="mr-auto">
+                    <h5 class="card-title fs-24 mb-0">
+                      <a href="products/pro.html" class="text-white">
+                        Backpacks
+                      </a>
+                    </h5>
+                  </div>
+                  <a href="products/pro.html" class="button-change w-45px h-45px bg-white bg-hover-primary rounded-circle fs-14 d-flex align-items-center justify-content-center hover-white"><i class="fal fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="box py-8" data-animate="fadeInUp">
+              <div class="card border-0 hover-zoom-in-custom hover-change-button">
+                <div class="card-img">
+                  <img src="images/Audio-Photoroom.png" alt="Sneakers">
+                </div>
+                <div class="card-img-overlay d-flex align-items-end px-6 py-4">
+                  <div class="mr-auto">
+                    <h5 class="card-title fs-24 mb-0">
+                      <a href="products/pro.html" class="text-white">
+                        Audio
+                      </a>
+                    </h5>
+                  </div>
+                  <a href="products/pro.html" class="button-change w-45px h-45px bg-white bg-hover-primary rounded-circle fs-14 d-flex align-items-center justify-content-center hover-white"><i class="fal fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="box py-8" data-animate="fadeInUp">
+              <div class="card border-0 hover-zoom-in-custom hover-change-button">
+                <div class="card-img">
+                  <img src="images/Camera_Bags-Photoroom.png" alt="Sneakers">
+                </div>
+                <div class="card-img-overlay d-flex align-items-end px-6 py-4">
+                  <div class="mr-auto">
+                    <h5 class="card-title fs-24 mb-0">
+                      <a href="products/pro.html" class="text-white">
+                        Camera Bags
+                      </a>
+                    </h5>
+                  </div>
+                  <a href="products/pro.html" class="button-change w-45px h-45px bg-white bg-hover-primary rounded-circle fs-14 d-flex align-items-center justify-content-center hover-white"><i class="fal fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="box py-8" data-animate="fadeInUp">
+              <div class="card border-0 hover-zoom-in-custom hover-change-button">
+                <div class="card-img">
+                  <img src="images/Gaming-Photoroom.png" alt="Sneakers">
+                </div>
+                <div class="card-img-overlay d-flex align-items-end px-6 py-4">
+                  <div class="mr-auto">
+                    <h5 class="card-title fs-24 mb-0">
+                      <a href="products/pro.html" class="text-white">
+                        Gaming
+                      </a>
+                    </h5>
+                  </div>
+                  <a href="products/pro.html" class="button-change w-45px h-45px bg-white bg-hover-primary rounded-circle fs-14 d-flex align-items-center justify-content-center hover-white"><i class="fal fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="box py-8" data-animate="fadeInUp">
+              <div class="card border-0 hover-zoom-in-custom hover-change-button">
+                <div class="card-img">
+                  <img src="images/Handbag-Photoroom.png" alt="Sneakers">
+                </div>
+                <div class="card-img-overlay d-flex align-items-end px-6 py-4">
+                  <div class="mr-auto">
+                    <h5 class="card-title fs-24 mb-0">
+                      <a href="products/pro.html" class="text-white">
+                        Handbags
+                      </a>
+                    </h5>
+                  </div>
+                  <a href="products/pro.html" class="button-change w-45px h-45px bg-white bg-hover-primary rounded-circle fs-14 d-flex align-items-center justify-content-center hover-white"><i class="fal fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-9 pt-lg-10 pb-lg-13">
+        <div class="container container-xxl">
+          <h2 class="mb-0 fs-30 fs-lg-42 d-inline-block align-items-center mb-8">TOP PRODUCTS</h2>
+          <div class="container container-xxl px-0">
+            <div class="row g-4 products-container">
+              <!-- Products will be loaded here dynamically -->
+              <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <p class="mt-2">Loading products...</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center pt-2">
+            <a href="./products/pro.html" class="btn btn-outline-primary w-100 w-sm-auto">
+              Load More
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="pt-7 pb-5 border-top">
+        <div class="container container-xl">
+          <div class="row">
+            <div class="col-md-6 col-xl-3 mb-6 mb-xl-0">
+              <div class="media">
+                <img src="images/images-icon-box-01.png" alt="Free Shipping" class="mr-3">
+                <div class="media-body">
+                  <h5 class="fs-20 lh-1 mb-2 font-weight-500">Genuine Products</h5>
+                  <p class="lh-1625">100% genuine Arctic Fox products</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-6 mb-xl-0">
+              <div class="media">
+                <img src="images/images-icon-box-03.png" alt="Money Guarantee" class="mr-3">
+                <div class="media-body">
+                  <h5 class="fs-20 lh-1 mb-2 font-weight-500">Value for Money</h5>
+                  <p class="lh-1625">Best value for money</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-6 mb-xl-0">
+              <div class="media">
+                <img src="images/images-icon-box-04.png" alt="Online Support" class="mr-3">
+                <div class="media-body">
+                  <h5 class="fs-20 lh-1 mb-2 font-weight-500">Store Support</h5>
+                  <p class="lh-1625">24 hours a day, 7 days a week</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-6 mb-xl-0">
+              <div class="media">
+                <img src="images/images-icon-box-05.png" alt="Flexible Payment" class="mr-3">
+                <div class="media-body">
+                  <h5 class="fs-20 lh-1 mb-2 font-weight-500">Easy Order</h5>
+                  <p class="lh-1625">Easy Order on WhatsApp</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer bg-gray-2 pt-10">
+      <div class="border-bottom border-custom">
+        <div class="container container-xxl">
+          <div class="row">
+            <div class="col-sm-6 col-xl-3 border-0 border-xl-right border-custom pb-8">
+              <div>
+                <h3 class="fs-16 mb-3 font-weight-500">INFORMATION</h3>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#" class="text-body lh-1875 hover-primary">Privacy policy</a></li>
+                  <li><a href="#" class="text-body lh-1875 hover-primary">Shipping &amp; Return</a></li>
+                  <li><a href="#" class="text-body lh-1875 hover-primary">Term &amp; conditions</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 border-0 border-xl-right border-custom pb-8">
+              <div class="pl-xl-6">
+                <h3 class="fs-16 mb-3 font-weight-500">QUICK LINKS</h3>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="about.html" class="text-body lh-1875 hover-primary">About Us</a></li>
+                  <li><a href="contact.html" class="text-body lh-1875 hover-primary">Contact Us</a></li>
+                  <li><a href="products/pro.html" class="text-body lh-1875 hover-primary">Products</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 border-0 border-xl-right border-custom pb-8">
+              <div class="pl-xl-6">
+                <h3 class="fs-16 mb-3 font-weight-500">CONTACT</h3>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="tel:+919176055555" class="text-body lh-1875 hover-primary">+91 91760 55555</a></li>
+                  <li><a href="mailto:naguruminc@gmail.com" class="text-body lh-1875 hover-primary">naguruminc@gmail.com</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 pb-8">
+              <div class="pl-xl-6">
+                <h3 class="fs-16 mb-4 font-weight-500">SUBSCRIBE</h3>
+                <p class="lh-2 mb-4">Enter your email below to be the first to know about new collections and
+                  product
+                  launches.</p>
+                <form>
+                  <div class="input-group position-relative bg-white rounded">
+                    <span class="d-inline-flex align-items-center position-absolute pos-fixed-left-center text-primary z-index-2 left-15"><i class="fal fa-envelope"></i></span>
+                    <input type="text" class="form-control border-0 bg-transparent pl-7" placeholder="Enter your email">
+                    <div class="input-group-append fs-14 position-absolute pos-fixed-right-center z-index-2 pr-3">
+                      <button class="bg-transparent border-0 outline-none">
+                        <i class="far fa-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="py-4">
+        <div class="container container-xxl">
+          <div class="row align-items-center">
+            <div class="col-lg-12 mb-4 mb-lg-0">
+              <p class="mb-0 text-uppercase text-center fs-14 text-primary letter-spacing-07px">&copy; Nagurum 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Vendors scripts -->
+    <script src="js/3914-vendors-jquery.min.js"></script>
+    <script src="js/jquery-ui-jquery-ui.min.js"></script>
+    <script src="js/bootstrap-bootstrap.bundle.js"></script>
+    <script src="js/js-bootstrap-select.min.js"></script>
+    <script src="js/slick-slick.min.js"></script>
+    <script src="js/waypoints-jquery.waypoints.min.js"></script>
+    <script src="js/counter-countUp.js"></script>
+    <script src="js/magnific-popup-jquery.magnific-popup.min.js"></script>
+    <script src="js/hc-sticky-hc-sticky.min.js"></script>
+    <script src="js/jparallax-TweenMax.min.js"></script>
+    <script src="js/mapbox-gl-mapbox-gl.js"></script>
+    <script src="js/isotope-isotope.js"></script>
+    <script src="js/8963-vendors-jquery.fullscreen.min.js"></script>
+    <script src="js/chartjs-chart.min.js"></script>
+
+        <!-- Initialize Supabase first -->
+        <script type="module">
+          import { supabase } from './products/js/supabase-config.js';
+          window.supabase = supabase; // Make it globally available
+          
+          // Then load the products script
+          import './products/js/products.js';
+      </script>
+
+    <!-- Theme scripts -->
+    <script src="js/8037-js-theme.js"></script>
+    <div class="mfp-hide search-popup mfp-with-anim bg-white" id="search-popup">
+      <div class="container container-xxl">
+        <nav class="navbar navbar-expand-xl px-0 py-2 py-xl-0 row no-gutters main-header align-items-start">
+          <div class="col-xl-2"><a class="navbar-brand mr-0" href="index.html">
+              <img src="images/image (8).png" alt="Nagurum" style="max-height: 60px;">
+            </a></div>
+          <div class="col-xl-8 d-flex justify-content-center position-static">
+            <form class="w-100">
+              <div class="input-group position-relative mb-2 mw-830 mx-auto">
+                <input type="text" class="form-control form-control bg-transparent border-primary rounded" placeholder="Search product">
+                <div class="input-group-append position-absolute pos-fixed-right-center">
+                  <button class="input-group-text bg-transparent border-0 px-0 fs-28 pr-3" type="submit">
+                    <i class="fal fa-search fs-20 font-weight-normal"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="sidenav canvas-sidebar bg-white">
+      <div class="canvas-overlay">
+      </div>
+      <div class="pt-5 pb-7 card border-0 h-100">
+        <div class="d-flex align-items-center card-header border-0 py-0 pl-8 pr-7 mb-9 bg-transparent">
+          <a href="index.html" class="d-block w-179px">
+            <img src="images/image (8).png" alt="nagurum" style="max-height: 60px;">
+          </a>
+          <span class="canvas-close d-inline-block text-right fs-24 ml-auto lh-1 text-primary"><i class="fal fa-times"></i></span>
+        </div>
+        <div class="overflow-y-auto pb-6 pl-8 pr-7 card-body pt-0">
+          <ul class="navbar-nav main-menu px-0 ">
+            <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown py-1 px-0">
+              <a class="nav-link p-0" href="index.html">
+                HOME
+              </a>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown py-1 px-0">
+              <a class="nav-link p-0" href="products/pro.html">
+                PRODUCTS
+                <span class="caret"></span>
+              </a>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown py-1 px-0">
+              <a class="nav-link p-0" href="about.html">
+                ABOUT US
+              </a>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown py-1 px-0">
+              <a class="nav-link p-0" href="contact.html">
+                CONTACT US
+                <span class="caret"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer bg-transparent border-0 mt-auto pl-8 pr-7 pb-0 pt-4">
+          <ul class="list-inline d-flex align-items-center mb-3">
+            <li class="list-inline-item mr-4"><a href="#" class="fs-20 lh-1"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item mr-4"><a href="#" class="fs-20 lh-1"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="fs-20 lh-1"><i class="fab fa-twitter"></i></a></li>
+          </ul>
+          <p class="mb-0 text-gray">
+            &copy; 2025 Nagurum.<br>
+             All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
