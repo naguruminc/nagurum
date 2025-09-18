@@ -82,64 +82,83 @@ function renderProductDetails(product) {
     
     // Create image gallery HTML
     const images = product.images && product.images.length > 0 ? product.images : [product.image_url || 'images/placeholder.jpg'];
-    const galleryItems = images.map((img, index) => `
-        <a class="list-group-item list-group-item-action p-0 d-flex mb-2 w-70px rounded-0 ${index === 0 ? 'active' : ''}" 
-           data-index="${index}" 
-           data-target="#gallery-${index + 1}">
-            <img src="${img}" alt="Thumb ${index + 1}" class="img-cover" onerror="this.onerror=null;this.src='images/placeholder.jpg'">
-        </a>`).join('');
     
-    const galleryImages = images.map((img, index) => `
-        <div class="gallery-item d-flex align-items-center justify-content-center mb-4" id="gallery-${index + 1}">
-            <img src="${img}" alt="${product.name}" class="img-fluid max-h-100" onerror="this.onerror=null;this.src='images/placeholder.jpg'">
+    // Main image (first image by default)
+    const mainImage = images[0];
+    
+    // Thumbnail navigation
+    const thumbnailItems = images.map((img, index) => `
+        <div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
+             data-index="${index}" 
+             data-src="${img}">
+            <img src="${img}" 
+                 alt="Thumb ${index + 1}" 
+                 onerror="this.onerror=null;this.src='images/placeholder.jpg'">
         </div>`).join('');
 
     // Create the product details HTML
     const productHtml = `
-    <section class="pt-8 pb-lg-15 pb-11">
+    <section class="py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-8 mb-md-0 position-relative">
-                    <div class="d-flex">
-                        <div id="list-dots" class="list-group product-image-dots dots-thumbs mr-2">
-                            ${galleryItems}
-                        </div>
-                        <div class="scrollspy-images ml-md-12">
-                            ${galleryImages}
-                        </div>
+            <div class="row align-items-start">
+                <!-- Product Gallery -->
+                <div class="col-md-6 mb-4 mb-md-0 product-gallery-container">
+                    <div class="main-image-container">
+                        <img src="${mainImage}" 
+                             alt="${product.name}" 
+                             class="main-image" 
+                             onerror="this.onerror=null;this.src='images/placeholder.jpg'">
+                    </div>
+                    <div class="thumbnail-navigation">
+                        ${thumbnailItems}
                     </div>
                 </div>
-                <div class="col-md-6 pl-md-6 pl-lg-13 primary-summary summary-sticky" id="summary-sticky">
+                
+                <!-- Product Summary -->
+                <div class="col-md-6 pl-md-4 pl-lg-5 primary-summary summary-sticky" id="summary-sticky">
                     <div class="primary-summary-inner">
-                        <p class="text-muted fs-11 font-weight-500 letter-spacing-05px text-uppercase mb-4">${product.category || 'Product'}</p>
-                        <div class="d-flex align-items-center">
-                            <h1 class="fs-30 mb-1">${product.name}</h1>
-                            ${product.in_stock ? '' : '<span class="badge badge-danger rounded-pill ml-6">Out of Stock</span>'}
+                        <!-- Category -->
+                        <p class="text-muted fs-11 font-weight-500 letter-spacing-05px text-uppercase mb-2">
+                            ${product.category || 'Product'}
+                        </p>
+                        
+                        <!-- Product Name -->
+                        <div class="d-flex align-items-center mb-2">
+                            <h1 class="fs-28 mb-0">${product.name}</h1>
+                            ${product.in_stock ? '' : '<span class="badge badge-danger rounded-pill ml-3">Out of Stock</span>'}
                         </div>
-                        <div class="price-container" style="margin: 12px 0;">
-                            <span style="color: #e74c3c !important; margin-right: 8px !important; font-size: 1.5rem; font-weight: 600;">₹${parseFloat(displayPrice).toFixed(2)}</span>
-                            ${salePrice ? `
-                                <span style="text-decoration: line-through !important; margin-right: 8px !important; color: #95a5a6;">₹${parseFloat(originalPrice).toFixed(2)}</span>
-                                <span style="background-color: #e74c3c !important; font-weight: 600 !important; color: white !important; padding: 1px 6px !important; border-radius: 10px !important; display: inline-block !important; font-size: 0.7rem !important; line-height: 1.2 !important;">
-                                    ${Math.round(((originalPrice - salePrice) / originalPrice) * 100)}% OFF
+                        
+                        <!-- Price -->
+                        <div class="price-container mb-3">
+                            <div class="d-flex align-items-center">
+                                <span class="text-danger font-weight-bold mr-2" style="font-size: 1.4rem;">
+                                    ₹${parseFloat(displayPrice).toFixed(2)}
                                 </span>
-                            ` : ''}
+                                ${salePrice ? `
+                                    <span class="text-muted text-decoration-line-through mr-2">
+                                        ₹${parseFloat(originalPrice).toFixed(2)}
+                                    </span>
+                                    <span class="badge bg-danger text-white font-weight-normal">
+                                        ${Math.round(((originalPrice - salePrice) / originalPrice) * 100)}% OFF
+                                    </span>
+                                ` : ''}
+                            </div>
                         </div>
                         ${product.short_description ? 
                             `<div class="product-short-description mb-4">${product.short_description}</div>` : 
                             product.description ? 
-                            `<div class="product-description mb-4">${product.description}</div>` : 
+                            `<div class="product-description mb-5">${product.description}</div>` : 
                             ''
                         }
                         <form>
                             <div class="row align-items-end no-gutters mx-n2">
                                 <div class="col-sm-12 mb-6 px-2">
-                                    <a href="https://wa.me/+919176055555?text=I%20Want%20To%20Order%20${encodeURIComponent(product.name)}" 
+                                    <a href="https://wa.me/+919176655555?text=I%20Want%20To%20Order%20${encodeURIComponent(product.name)}" 
                                        class="btn btn-success btn-block text-capitalize mb-3" 
                                        target="_blank">
                                         <i class="fab fa-whatsapp mr-2"></i> Order On WhatsApp
                                     </a>
-                                    <a href="tel:+919176055555" class="btn btn-primary btn-block text-capitalize">
+                                    <a href="tel:+919176655555" class="btn btn-primary btn-block text-capitalize">
                                         <i class="fas fa-phone-alt mr-2"></i> Contact Store
                                     </a>
                                 </div>
@@ -274,18 +293,43 @@ function renderProductDetails(product) {
 }
 
 function initImageGallery() {
-    const thumbnails = document.querySelectorAll('.product-image-dots .list-group-item');
-    const scrollContainer = document.querySelector('.scrollspy-images');
-    const images = document.querySelectorAll('.scrollspy-images a');
+    const thumbnails = document.querySelectorAll('.thumbnail-item');
+    const mainImage = document.querySelector('.main-image');
     const summarySticky = document.querySelector('.summary-sticky');
     
-    // Set initial heights and sync scrolling
+    // Handle thumbnail clicks
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            const imgSrc = this.getAttribute('data-src');
+            if (imgSrc) {
+                // Update main image with fade effect
+                mainImage.style.opacity = '0';
+                setTimeout(() => {
+                    mainImage.src = imgSrc;
+                    mainImage.style.opacity = '1';
+                }, 150);
+                
+                // Update active thumbnail
+                thumbnails.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Scroll thumbnail into view if needed
+                this.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+            }
+        });
+    });
+    
+    // Set initial heights
     function syncHeights() {
         try {
             const galleryContainer = document.querySelector('.product-gallery-container');
             
             // Check if elements exist before accessing their properties
-            if (!galleryContainer || !scrollContainer || !summarySticky) {
+            if (!galleryContainer || !summarySticky) {
                 console.warn('One or more required elements are missing');
                 return;
             }
@@ -297,9 +341,14 @@ function initImageGallery() {
             if (galleryHeight > 0 && summaryHeight > 0) {
                 const maxHeight = Math.max(galleryHeight, summaryHeight);
                 
-                // Set both containers to the same height
-                scrollContainer.style.height = `${maxHeight}px`;
+                // Set summary container to the max height
                 summarySticky.style.height = `${maxHeight}px`;
+                
+                // Set main image container height
+                const mainImageContainer = document.querySelector('.main-image-container');
+                if (mainImageContainer) {
+                    mainImageContainer.style.height = `calc(100% - 100px)`; // Account for thumbnails
+                }
             } else {
                 // If heights are 0, try again after a short delay
                 setTimeout(syncHeights, 100);
@@ -313,158 +362,45 @@ function initImageGallery() {
     syncHeights();
     window.addEventListener('resize', syncHeights);
     
-    // Handle thumbnail clicks
-    thumbnails.forEach((item) => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Update active thumbnail
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Get the target image index
-            const targetIndex = parseInt(this.getAttribute('data-index'));
-            const targetId = this.getAttribute('data-target');
-            const targetImage = document.querySelector(targetId);
-            
-            if (targetImage) {
-                // Hide all images first
-                document.querySelectorAll('.gallery-item').forEach(img => {
-                    img.style.display = 'none';
-                });
-                
-                // Show the selected image
-                targetImage.style.display = 'flex';
-                
-                // Update URL hash
-                window.location.hash = targetId;
-                
-                // Scroll to the top of the container
-                scrollContainer.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Variables for scroll syncing
-    let isSyncingScroll = false;
-    let lastScrollTime = Date.now();
-    
-    // Sync scrolling between content and images
-    function syncScroll(scrollSource, scrollTarget) {
-        try {
-            if (!scrollSource || !scrollTarget || isSyncingScroll) return;
-            
-            const currentTime = Date.now();
-            if (currentTime - lastScrollTime < 50) return; // Throttle to ~20fps
-            
-            isSyncingScroll = true;
-            
-            // Calculate scroll percentage
-            const scrollHeight = scrollSource.scrollHeight - scrollSource.clientHeight;
-            if (scrollHeight <= 0) {
-                isSyncingScroll = false;
-                return;
-            }
-            
-            const scrollPercentage = scrollSource.scrollTop / scrollHeight;
-            
-            // Apply the same scroll percentage to the target
-            const targetScrollHeight = scrollTarget.scrollHeight - scrollTarget.clientHeight;
-            if (targetScrollHeight > 0) {
-                scrollTarget.scrollTop = scrollPercentage * targetScrollHeight;
-            }
-            
-            lastScrollTime = currentTime;
-            
-            // Update active thumbnail if we have a valid scroll container
-            if (scrollSource === scrollContainer) {
-                updateActiveThumbnail();
-            }
-            
-            // Reset sync lock
-            requestAnimationFrame(() => {
-                isSyncingScroll = false;
-            });
-        } catch (error) {
-            console.error('Error in scroll sync:', error);
-            isSyncingScroll = false;
-        }
-    }
-    
-    // Set up scroll event listeners for both containers
-    scrollContainer.addEventListener('scroll', () => {
-        syncScroll(scrollContainer, summarySticky);
-    });
-    
-    summarySticky.addEventListener('scroll', () => {
-        syncScroll(summarySticky, scrollContainer);
-    });
-    
-    // Update active thumbnail based on scroll position
-    function updateActiveThumbnail() {
-        const containerRect = scrollContainer.getBoundingClientRect();
-        const containerCenter = containerRect.top + (containerRect.height / 2);
-        
-        let closestImage = null;
-        let minDistance = Infinity;
-        
-        images.forEach((img, index) => {
-            const imgRect = img.getBoundingClientRect();
-            const imgCenter = imgRect.top + (imgRect.height / 2);
-            const distance = Math.abs(containerCenter - imgCenter);
-            
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestImage = index;
-            }
-        });
-        
-        if (closestImage !== null) {
-            thumbnails.forEach((thumb, index) => {
-                if (index === closestImage) {
-                    thumb.classList.add('active');
-                    // Ensure the active thumbnail is visible in the container
-                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                } else {
-                    thumb.classList.remove('active');
-                }
-            });
-        }
-    }
-    
-    // Initialize with the first thumbnail active
-    if (thumbnails.length > 0) {
-        thumbnails[0].classList.add('active');
-    }
-    
-    // Initialize Magnific Popup for image zoom
-    $('.scrollspy-images a').magnificPopup({
+    // Initialize Magnific Popup for image zoom on the main image
+    $('.main-image-container').magnificPopup({
         type: 'image',
-        gallery: {
-            enabled: true
+        items: {
+            src: mainImage.src
         },
         zoom: {
             enabled: true,
             duration: 300,
             easing: 'ease-in-out',
             opener: function(openerElement) {
-                return openerElement.is('img') ? openerElement : openerElement.find('img');
+                return $(openerElement).find('img');
             }
         },
         callbacks: {
             open: function() {
-                // Pause scroll event handling while popup is open
-                isScrolling = true;
+                // Pause any animations while popup is open
             },
             close: function() {
-                // Resume scroll event handling
+                // Resume animations
+            }
+        }
+    });
+    
+    // Update Magnific Popup when changing images
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.thumbnail-item')) {
+            const newSrc = e.target.closest('.thumbnail-item').getAttribute('data-src');
+            const magnificPopup = $.magnificPopup.instance;
+            
+            if (magnificPopup.isOpen) {
+                magnificPopup.close();
                 setTimeout(() => {
-                    isScrolling = false;
-                    updateActiveThumbnail();
-                }, 100);
+                    $('.main-image-container').magnificPopup('open', {
+                        items: {
+                            src: newSrc
+                        }
+                    });
+                }, 300);
             }
         }
     });
