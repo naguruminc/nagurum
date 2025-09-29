@@ -129,10 +129,11 @@ function createProductCard(product) {
         }
     };
     
-    // Format prices
-    const originalPrice = product.original_price || product.price;
-    const salePrice = product.sale_price || null;
+    // Format prices and calculate discount
+    const originalPrice = parseFloat(product.original_price || product.price);
+    const salePrice = product.sale_price ? parseFloat(product.sale_price) : null;
     const displayPrice = salePrice || originalPrice;
+    const discountPercentage = salePrice ? Math.round(((originalPrice - salePrice) / originalPrice) * 100) : 0;
     
     // Create the product card HTML
     const productCard = document.createElement('div');
@@ -144,10 +145,16 @@ function createProductCard(product) {
                     <img src="${mainImage}" alt="${product.name}" class="image-active" onerror="this.onerror=null;this.src='images/placeholder.jpg'">
                     <img src="${secondaryImage}" alt="${product.name}" class="image-hover" onerror="this.onerror=null;this.src='images/placeholder.jpg'">
                 </a>
-                <div class="position-absolute pos-fixed-top-right d-inline-flex p-4 flex-column z-index-10">
-                    <div class="d-flex align-items-center">
-                    </div>
+                <div class="position-absolute pos-fixed-top-right d-inline-flex p-2 flex-column z-index-10">
+                    ${!product.in_stock ? `
+                        <span class="badge badge-danger" style="font-size: 12px; padding: 5px 8px; background-color: #e74c3c; color: white; border-radius: 3px;">Out of Stock</span>
+                    ` : ''}
                 </div>
+                ${salePrice && product.in_stock ? `
+                    <div class="position-absolute" style="top: 10px; left: 10px; z-index: 10;">
+                        <span class="badge" style="font-size: 12px; padding: 5px 8px; background-color: #e74c3c; color: white; border-radius: 3px; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${discountPercentage}% OFF</span>
+                    </div>
+                ` : ''}
             </div>
             <div class="card-body px-0 pt-3 pb-2" style="flex: 1; display: flex; flex-direction: column;">
                 <div class="product-content" style="flex: 1; min-height: 0;">
@@ -161,11 +168,6 @@ function createProductCard(product) {
                         ` : ''}
                     </div>
                 </div>
-                ${!product.in_stock ? `
-                    <div class="mt-3">
-                        <span class="badge badge-danger">Out of Stock</span>
-                    </div>
-                ` : ''}
             </div>
         </div>
     `;

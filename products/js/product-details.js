@@ -118,52 +118,60 @@ function renderProductDetails(product) {
                 <div class="col-md-6 pl-md-4 pl-lg-5 primary-summary summary-sticky" id="summary-sticky">
                     <div class="primary-summary-inner">
                         <!-- Category -->
-                        <p class="text-muted fs-11 font-weight-500 letter-spacing-05px text-uppercase mb-2">
-                            ${product.category || 'Product'}
-                        </p>
-                        
-                        <!-- Product Name -->
-                        <div class="d-flex align-items-center mb-2">
-                            <h1 class="fs-28 mb-0">${product.name}</h1>
-                            ${product.in_stock ? '' : '<span class="badge badge-danger rounded-pill ml-3">Out of Stock</span>'}
+                        <!-- Category -->
+                        <div class="mb-3">
+                            <span class="text-uppercase tracking-wider text-primary font-weight-400 letter-spacing-1" style="font-size: 0.8rem;">
+                                ${product.category || 'Premium Product'}
+                            </span>
                         </div>
                         
+                        <!-- Product Name -->
+                        <h1 class="mb-3" style="font-size: 2rem; font-weight: 600; line-height: 1.2; color: #1a202c; letter-spacing: -0.5px;">
+                            ${product.name}
+                        </h1>
+                        
                         <!-- Price -->
-                        <div class="price-container mb-3">
-                            <div class="d-flex align-items-center">
-                                <span class="text-danger font-weight-bold mr-2" style="font-size: 1.4rem;">
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center flex-wrap mb-2">
+                                <span class="text-danger font-weight-bold mr-3" style="font-size: 2rem; line-height: 1;">
                                     ₹${parseFloat(displayPrice).toFixed(2)}
                                 </span>
                                 ${salePrice ? `
-                                    <span class="text-muted text-decoration-line-through mr-2">
+                                    <span class="text-muted text-decoration-line-through mr-3" style="font-size: 1.2rem;">
                                         ₹${parseFloat(originalPrice).toFixed(2)}
                                     </span>
-                                    <span class="badge bg-danger text-white font-weight-normal">
-                                        ${Math.round(((originalPrice - salePrice) / originalPrice) * 100)}% OFF
+                                    <span class="badge bg-danger text-white px-3 py-2" style="font-size: 0.9rem; font-weight: 600; border-radius: 4px;">
+                                        SAVE ${Math.round(((originalPrice - salePrice) / originalPrice) * 100)}%
                                     </span>
                                 ` : ''}
                             </div>
-                        </div>
-                        ${product.short_description ? 
-                            `<div class="product-short-description mb-4">${product.short_description}</div>` : 
-                            product.description ? 
-                            `<div class="product-description mb-5">${product.description}</div>` : 
-                            ''
-                        }
-                        <form>
-                            <div class="row align-items-end no-gutters mx-n2">
-                                <div class="col-sm-12 mb-6 px-2">
-                                    <a href="https://wa.me/+919176655555?text=I%20Want%20To%20Order%20${encodeURIComponent(product.name)}" 
-                                       class="btn btn-success btn-block text-capitalize mb-3" 
-                                       target="_blank">
-                                        <i class="fab fa-whatsapp mr-2"></i> Order On WhatsApp
-                                    </a>
-                                    <a href="tel:+919176655555" class="btn btn-primary btn-block text-capitalize">
-                                        <i class="fas fa-phone-alt mr-2"></i> Contact Store
-                                    </a>
-                                </div>
+                            <div class="mb-3">
+                                <span class="badge ${product.in_stock ? 'bg-dark text-white' : 'bg-warning text-white'} px-3 py-2" style="font-size: 0.85rem; font-weight: 500;">
+                                    <i class="fas ${product.in_stock ? 'fa-check-circle' : 'fa-exclamation-circle'} me-1"></i>
+                                    ${product.in_stock ? 'In Stock & Ready to Ship' : 'Currently Unavailable'}
+                                </span>
                             </div>
-                        </form>
+                        </div>
+                        <!-- Description with improved typography -->
+                        ${(product.short_description || product.description) ? `
+                            <div class="mb-5">
+                                <p class="mb-0" style="font-size: 1.1rem; line-height: 1.7; color: #4a5568;">
+                                    ${product.short_description || product.description}
+                                </p>
+                            </div>
+                        ` : ''}
+                        <div class="product-actions">
+                            ${product.in_stock ? `
+                                <a href="https://wa.me/+919176655555?text=I%20Want%20To%20Order%20${encodeURIComponent(product.name)}" 
+                                   class="btn btn-success text-capitalize" 
+                                   target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Order On WhatsApp
+                                </a>
+                            ` : ''}
+                            <a href="tel:+919176655555" class="btn btn-primary text-capitalize contact-store-btn">
+                                <i class="fas fa-phone-alt"></i> ${product.in_stock ? 'Contact Store' : 'Check Availability'}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

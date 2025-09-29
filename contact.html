@@ -168,86 +168,21 @@
               </h2>
               <p class="mb-7">If you’ve got great products your making or looking to work with us then drop us a
                 line.</p>
-              <form id="contactForm">
+              <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="8c6d93cc-b997-433e-a21e-17cdf1748223">
                 <div class="row mb-6">
                   <div class="col-sm-6">
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name*" required>
+                    <input type="text" name="name" class="form-control" placeholder="Your Name*" required="">
                   </div>
                   <div class="col-sm-6">
-                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contact No*" required>
+                    <input type="number" name="phone" class="form-control" placeholder="Contact No*" required="">
                   </div>
                 </div>
                 <div class="form-group mb-4">
-                  <textarea id="message" name="message" class="form-control" rows="6" placeholder="Your message..." required></textarea>
+                  <textarea class="form-control" rows="6" name="message" placeholder="Your Message*" required=""></textarea>
                 </div>
-                <div id="formMessage" class="alert d-none mb-4"></div>
-                <button type="submit" id="submitBtn" class="btn btn-primary text-uppercase letter-spacing-05px">
-                  <span class="spinner-border spinner-border-sm d-none" id="spinner" role="status" aria-hidden="true"></span>
-                  <span id="submitText">Submit Now</span>
-                </button>
+                <button type="submit" class="btn btn-primary text-uppercase letter-spacing-05px">submit now</button>
               </form>
-              
-              <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                  const form = document.getElementById('contactForm');
-                  const formMessage = document.getElementById('formMessage');
-                  const submitBtn = document.getElementById('submitBtn');
-                  const spinner = document.getElementById('spinner');
-                  const submitText = document.getElementById('submitText');
-                  
-                  // Replace with your Google Apps Script Web App URL
-                  const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-                  
-                  form.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    
-                    // Show loading state
-                    submitBtn.disabled = true;
-                    spinner.classList.remove('d-none');
-                    submitText.textContent = 'Submitting...';
-                    formMessage.className = 'alert d-none';
-                    
-                    try {
-                      const formData = {
-                        name: form.name.value.trim(),
-                        phone: form.phone.value.trim(),
-                        message: form.message.value.trim()
-                      };
-                      
-                      const response = await fetch(SCRIPT_URL, {
-                        method: 'POST',
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(formData)
-                      });
-                      
-                      const result = await response.json();
-                      
-                      if (result.status === 'success') {
-                        // Show success message
-                        formMessage.className = 'alert alert-success';
-                        formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-                        form.reset();
-                      } else {
-                        throw new Error(result.message || 'Something went wrong');
-                      }
-                    } catch (error) {
-                      console.error('Error:', error);
-                      formMessage.className = 'alert alert-danger';
-                      formMessage.textContent = 'There was an error submitting the form. Please try again later.';
-                    } finally {
-                      // Reset button state
-                      submitBtn.disabled = false;
-                      spinner.classList.add('d-none');
-                      submitText.textContent = 'Submit Now';
-                      
-                      // Scroll to message
-                      formMessage.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  });
-                });
-              </script>
             </div>
           </div>
         </div>
@@ -265,7 +200,7 @@
                 <ul class="list-unstyled mb-0">
                   <li><a href="./products/pro.html" class="text-body lh-1875 hover-primary">Gaming</a></li>
                   <li><a href="./products/pro.html" class="text-body lh-1875 hover-primary">Backpacks</a></li>
-                  <li><a href="./products/pro.html" class="text-body lh-1875 hover-primary">Handbags</a></li>
+                  <li><a href="./products/pro.html" class="text-body lh-1875 hover-primary">Camera Bags</a></li>
                 </ul>
               </div>
             </div>

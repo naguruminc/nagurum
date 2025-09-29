@@ -74,6 +74,12 @@ function setupEventListeners() {
     backToProductsBtn.addEventListener('click', showProductsList);
   }
   
+  // Back to products button at bottom of form
+  const backToProductsBottomBtn = document.getElementById('back-to-products-bottom');
+  if (backToProductsBottomBtn) {
+    backToProductsBottomBtn.addEventListener('click', showProductsList);
+  }
+  
   if (cancelEditBtn) {
     cancelEditBtn.addEventListener('click', cancelEdit);
   }
@@ -550,35 +556,49 @@ async function handleFormSubmit(e) {
     let savedProduct;
     if (currentProductId) {
       savedProduct = await updateProduct(currentProductId, productData);
-      showSuccess('Product updated successfully!');
     } else {
       savedProduct = await createProduct(productData);
-      showSuccess('Product added successfully!');
     }
     
-    // Reset form and show products list
-    const form = document.getElementById('product-form');
-    if (form) form.reset();
+    // Show success message
+    showSuccess(currentProductId ? 'Product updated successfully!' : 'Product added successfully!');
     
-    // Clear all image previews
-    document.querySelectorAll('.image-preview-container').forEach(container => {
-      container.innerHTML = '';
-    });
-    
-    // Reset file inputs
-    document.querySelectorAll('.product-image').forEach(input => {
-      input.value = '';
-    });
-    
-    const deleteBtn = document.getElementById('delete-product');
-    if (deleteBtn) deleteBtn.style.display = 'none';
-    
-    currentProductId = null;
-    currentImageFiles = Array(4).fill(null);
-    currentImageUrls = Array(4).fill('');
-    
-    // Reload products
-    await loadProducts();
+    // If we're in edit mode, update the form with the saved data
+    if (currentProductId) {
+      // Keep the form open but update the data
+      const updatedProduct = await getProductById(currentProductId);
+      if (updatedProduct) {
+        // Update the form with the latest data
+        document.getElementById('product-name').value = updatedProduct.name || '';
+        document.getElementById('product-short-description').value = updatedProduct.short_description || '';
+        document.getElementById('product-description').value = updatedProduct.description || '';
+        document.getElementById('product-category').value = updatedProduct.category || '';
+        document.getElementById('product-original-price').value = updatedProduct.original_price || '';
+        document.getElementById('product-sale-price').value = updatedProduct.sale_price || '';
+        document.getElementById('product-in-stock').checked = updatedProduct.in_stock || false;
+        
+        // Update specifications
+        if (updatedProduct.specifications) {
+          loadSpecifications(updatedProduct.specifications);
+        }
+        
+        // Update images
+        if (updatedProduct.images && updatedProduct.images.length > 0) {
+          currentImageUrls = [...updatedProduct.images, ...Array(4 - updatedProduct.images.length).fill('')];
+          currentImageUrls.forEach((url, index) => {
+            if (url) {
+              updateImagePreview(url, updatedProduct.name, index);
+            } else {
+              const container = document.getElementById(`image-preview-${index}`);
+              if (container) container.innerHTML = '';
+            }
+          });
+        }
+      }
+    } else {
+      // For new products, reset the form but stay on the form
+      resetForm();
+    }
     
   } catch (error) {
     console.error('Error saving product:', error);
